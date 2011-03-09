@@ -46,4 +46,6 @@ Betyoulose::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
+  ENV["HOSTNAME"] = 'http://localhost:3007/'
+  config.cache_store = :dalli_store
 end

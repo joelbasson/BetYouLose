@@ -1,7 +1,8 @@
 body {
-  background-color: #4B7399;
-  font-family: Verdana, Helvetica, Arial;
-  font-size: 14px;
+  font-family: 'Molengo', arial, serif; 
+  font-size: 17px;
+  padding:0 0 0 0;
+  margin: 0;
 }
 
 a img {
@@ -9,8 +10,17 @@ a img {
 }
 
 a {
-  color: #0000FF;
+  	color: #666;
+	font-size: 17px;
+	font-style: normal;
+	font-family: 'Chewy', Verdana, Helvetica, Arial;
+	text-decoration:none;
 }
+
+a:hover {
+	text-decoration:underline;
+}
+
 
 .clear {
   clear: both;
@@ -18,28 +28,100 @@ a {
   overflow: hidden;
 }
 
-#container {
-  width: 75%;
-  margin: 0 auto;
-  background-color: #FFF;
-  padding: 20px 40px;
-  border: solid 1px black;
-  margin-top: 20px;
+h1
+{
+	font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+	display:inline;
 }
 
-#flash_notice, #flash_error, #flash_alert {
-  padding: 5px 8px;
-  margin: 10px 0;
+#logo
+{
+	display:none;;
 }
 
-#flash_notice {
-  background-color: #CFC;
-  border: solid 1px #6C6;
+#logo-title
+{
+	font-family: 'Irish Growler', 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+	font-size:50px;
+	font-weight:bold;
+	text-decoration:none;
+	color:black;
+	padding:0 0 0 100px;
 }
 
-#flash_error, #flash_alert {
-  background-color: #FCC;
-  border: solid 1px #C66;
+h2
+{
+	font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+	text-align: center;
+}
+
+#title
+{
+	width:75%;
+	margin: 0 auto;
+	margin-bottom:30px;
+	text-align: center;
+}
+
+#main-page
+{
+	min-width: 980px;
+	background-image: url('/images/grey-gradient.png');
+	background-repeat:repeat-x;
+}
+
+#head-menu
+{
+	margin: 0 auto;
+	width: 940px;
+	height:30px;
+	background:white;
+	border-bottom-right-radius:10px;
+	border-bottom-left-radius:10px;
+	padding: 10px 20px 30px 20px;
+}
+	
+#container 
+{
+  margin: 20px auto 0px;
+  width: 940px;
+  background-color: white;
+  padding: 20px 20px 20px 20px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+}
+
+#menu
+{
+	float:right;
+}
+
+.flash
+{
+  overflow: hidden;
+  z-index: 999;
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgb(161,195,0);
+  background-color: rgba(161,195,0,.8);
+  height: 0;
+  color: #fff;
+  padding: 50px 0 20px 0;
+  text-shadow: rgba(99,130,0,.75) 2px 2px 2px;
+  font-size: 21px;
+  font-weight:bold;
+}
+
+.warning
+{
+  background-color: #red;
+}
+
+.notice {
+  background-color: black;
 }
 
 .fieldWithErrors {
@@ -73,3 +155,129 @@ a {
 .error_messages ul {
   margin: 0;
 }
+
+.back
+{
+	padding-left:20px;;
+}
+
+#user_nav {
+  float: right;
+}
+
+.center-inner
+{
+	margin: 0 auto;
+	padding-left:20px;
+	padding-right:10px;
+	width: 725px;
+}
+
+/* Start Bets */
+
+#previews
+{
+	margin: 0 auto;
+	padding-left:20px;
+	padding-right:10px;
+	width: 725px;
+}
+
+.bet
+{
+	clear: both;
+    padding:10px 10px 10px 10px;
+	background: #fff;
+	box-shadow: 0px 0px 3px black;
+	-webkit-box-shadow: 0px 0px 3px black;
+	-moz-box-shadow: 0px 0px 3px black;
+	-moz-border-radius: 15px;
+	border-radius: 10px;
+	border-top-left-radius: 10px 10px;
+	border-top-right-radius: 10px 10px;
+	border-bottom-right-radius: 10px 10px;
+	border-bottom-left-radius: 10px 10px;
+    width: 700px;
+    position:relative;
+    float:left;
+}
+
+.bet-title
+{
+	text-align:center;
+	padding-bottom:10px;
+	font-size:17px;
+	font-weight:bold;
+}
+
+.bet-end-date
+{
+	font-style:italic;
+}
+
+.bet-display-name
+{
+	font-size:13px;
+}
+
+/* End Bets */
+/*.pagination
+{
+	margin:20px 0 0 20px;
+}*/
+
+.pagination {
+    color: #666;
+	font-size: 17px;
+	font-style: normal;
+	font-family: 'Chewy', Verdana, Helvetica, Arial;
+    text-align: center;
+    margin: 0;
+    padding: 3px 0 4px;
+}
+   .pagination a,
+.pagination span {
+    padding: 3px 3px 2px;
+}
+.pagination .disabled {
+    background:none repeat scroll 0 0 transparent;
+    border:medium none;
+    color:#999999;
+    cursor:default;
+}
+.pagination a {
+    color:#3B5998;
+    cursor:pointer;
+    text-decoration:none;
+}
+.pagination a:hover {
+    background-color:#3B5998;
+    border-bottom:1px solid #3B5998;
+    border-color:#D8DFEA #D8DFEA #3B5998;
+    color:#FFFFFF;
+    text-decoration:none;
+}
+.pagination em {}
+.pagination em {
+    border-bottom:2px solid #3B5998;
+    border-color:#3B5998;
+    color:#3B5998;
+	font-size: 17px;
+	font-style:normal;
+    padding-left:2px;
+    padding-right:2px;
+	padding-top:0;
+	padding-bottom:0;
+}
+.pagination em a:hover {
+    background-color:#3B5998;
+    color:#FFFFFF;
+}
+
+.pagination .prev_page {
+
+}
+.pagination .next_page {
+
+}
+/* end Pagination */

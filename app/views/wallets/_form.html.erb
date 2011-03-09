@@ -1,0 +1,10 @@
+<% form_tag(wallet_purchase_path, :method=>'post' ) do %>
+
+	<p>Amount:<br />
+	   <%= text_field_tag "credits" %>
+	</p>
+	<p>
+	   <%= submit_tag 'Submit' %>
+	</p>
+	
+<% end %>

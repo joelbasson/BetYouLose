@@ -1,4 +1,17 @@
 Betyoulose::Application.routes.draw do
+  resources :wallets, :only => [:show] do
+    get 'buy'
+    post 'purchase'
+  end  
+
+  resources :bets do
+    resources :wagers, :except => [:index, :show, :create, :new, :destroy]
+  end  
+
+  devise_for :users
+  
+  match 'bets/:bet_id/wagers/:against' => 'wagers#bet_now', :as => :bet_now
+  root :to => "bets#index"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -1,19 +1,28 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
-    <%= stylesheet_link_tag "application" %>
+    <title><%= content_for?(:title) ?  APP_CONFIG["application_name"] + " - " +  yield(:title) : APP_CONFIG["application_name"] %></title>
+    <%= stylesheet_link_tag "application", "formtastic", "formtastic_changes", 'http://fonts.googleapis.com/css?family=Irish+Growler', 'http://fonts.googleapis.com/css?family=Chewy', 'http://fonts.googleapis.com/css?family=Molengo' %>
     <%= javascript_include_tag :defaults %>
     <%= csrf_meta_tag %>
     <%= yield(:head) %>
   </head>
   <body>
-    <div id="container">
-      <% flash.each do |name, msg| %>
-        <%= content_tag :div, msg, :id => "flash_#{name}" %>
-      <% end %>
-      <%= content_tag :h1, yield(:title) if show_title? %>
-      <%= yield %>
-    </div>
+	<div id='main-page'>
+		<div id='head-menu'>
+			<h1 id='logo'><%= APP_CONFIG["application_name"] %></h1><%= link_to APP_CONFIG["application_name"], root_url, :id => 'logo-title' %>
+			<%= render 'shared/login'%>
+		</div>
+    	<div id="container">
+	      <% flash.each do |name, msg| %>
+	        <%= content_tag :div, msg, :class => "flash #{name}", :style => 'display: none' %>
+	      <% end %>
+	      <div id='title'><%= content_tag :h2, yield(:title) if show_title? %></div>
+	      <%= yield %>
+		  <div class="clear"></div>	
+		  <div class="line"></div>
+	    </div>
+	</div>
+	<%= javascript_include_rpx(user_session_url) %>
   </body>
 </html>

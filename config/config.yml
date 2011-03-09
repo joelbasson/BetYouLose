@@ -1,0 +1,11 @@
+development:
+  application_name: BetYouLose
+  admin_email: joelbasson@me.com
+
+test:
+  application_name: BetYouLose
+  admin_email: joelbasson@me.com
+
+production:
+  application_name: BetYouLose
+  admin_email: joelbasson@me.com

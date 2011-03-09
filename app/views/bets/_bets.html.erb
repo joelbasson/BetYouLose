@@ -1,0 +1,12 @@
+<div id="previews">
+	
+	<% if @bets.size == 0 %>
+		&nbsp
+	<% end %>
+	<%= render @bets %>
+	<div class="clear"></div>
+	<%= will_paginate @bets %>
+	
+</div>
+
+

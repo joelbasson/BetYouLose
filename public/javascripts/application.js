@@ -1,2 +1,14 @@
-// Place your application-specific JavaScript functions and classes here
-// This file is automatically included by javascript_include_tag :defaults
+$(function() {
+	flashNotice();
+});
+
+function flashNotice() {
+  	var flash = $('.flash');
+	  if (flash.length > 0) {
+	    flash.show().animate({height: flash.outerHeight()}, 300);
+
+	    window.setTimeout(function() {
+	      flash.slideUp();
+	    }, 3000);
+	  }
+}

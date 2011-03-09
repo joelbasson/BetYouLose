@@ -1,0 +1,13 @@
+<%= semantic_form_for @bet do |f| %>
+  <%= error_div_for @bet %>
+  <%= f.semantic_errors  %>
+  <%= f.inputs do %>
+	<%= f.input :title %>
+	<%= f.input :description %>
+	<%= f.input :display_name, :hint => "Choose a name that the person you are betting against will recognize i.e BigTalker2011" %>
+	<%= f.input :end_date, :start_year => Time.now.year %>
+	<%= f.input :wager_amount %>
+	<%= f.input :verify_description, :label => "Verification", :hint => "Describe how we can verify the winner" %>
+  <% end %>	
+  <%= f.buttons %>
+<% end %>
