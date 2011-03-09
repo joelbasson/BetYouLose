@@ -1,0 +1,12 @@
+<div id="previews"> 
+	
+	<% if @wagers.size == 0 %>
+		&nbsp
+	<% end %>
+	
+<% for wager in @wagers do %>
+	<%= wager.user.display_name %> bet <%= wager.credits %> on  <%= wager.created_at.strftime("%a %d %b %Y %I:%M %p") %><br />
+<% end %>	
+
+<%= will_paginate @wagers, :params => {:controller => "bets", :action => "show"} %>
+</div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110308234016) do
+ActiveRecord::Schema.define(:version => 20110309054828) do
 
   create_table "bets", :force => true do |t|
     t.string   "title"
@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(:version => 20110308234016) do
     t.boolean  "verified",           :default => false
     t.boolean  "confirmed",          :default => false
     t.string   "display_name"
+    t.integer  "wagers_count",       :default => 0
+    t.string   "status",             :default => "Undecided"
   end
 
   create_table "transactions", :force => true do |t|
@@ -51,6 +53,7 @@ ActiveRecord::Schema.define(:version => 20110308234016) do
     t.datetime "updated_at"
     t.boolean  "admin",                               :default => false
     t.integer  "wallet_id"
+    t.string   "display_name"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

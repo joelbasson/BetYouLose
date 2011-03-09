@@ -2,6 +2,7 @@ Betyoulose::Application.routes.draw do
   resources :wallets, :only => [:show] do
     get 'buy'
     post 'purchase'
+    resources :transactions, :only => [:index]
   end  
 
   resources :bets do

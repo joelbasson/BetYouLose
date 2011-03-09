@@ -1,5 +1,17 @@
 <% title "Bets", show_title = false %>
 
+<div class="into-text">
+	Arguing with someone that thinks they're right when they're not? Tell them to put their money where their mouth is! Create your bet, put some credits on it, and dare them to bet against you. You can each bet as many times as you want, and other people can join in if they want. <%= link_to "Create a New Bet now", new_bet_path %>
+</div>
+	
+<%= form_for @search do |f| %>
+  <p>
+    <%= f.label :title_or_description_contains, 'Search' %>
+    <%= f.text_field :title_or_description_contains %>
+	<%= f.submit "Search" %>
+  </p>
+<% end %>
+
 <%= render 'bets' %>
 
-<p><%= link_to "New Bet", new_bet_path %></p>
+

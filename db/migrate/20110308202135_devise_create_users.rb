@@ -11,6 +11,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       # t.token_authenticatable
       
       t.integer :wallet_id
+      t.string :display_name
       t.boolean :admin, :default => false
       t.string :rpx_identifier
 

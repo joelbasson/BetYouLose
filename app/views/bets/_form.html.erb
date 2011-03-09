@@ -3,11 +3,15 @@
   <%= f.semantic_errors  %>
   <%= f.inputs do %>
 	<%= f.input :title %>
-	<%= f.input :description %>
+	<%= f.input :description, :input_html => { :rows => 10, :cols => 10, :maxlength => 500 } %>
 	<%= f.input :display_name, :hint => "Choose a name that the person you are betting against will recognize i.e BigTalker2011" %>
-	<%= f.input :end_date, :start_year => Time.now.year %>
+	<%= f.input :end_date, :start_date => Time.now.year, :include_blank => false  %>
 	<%= f.input :wager_amount %>
-	<%= f.input :verify_description, :label => "Verification", :hint => "Describe how we can verify the winner" %>
+	<%= f.input :verify_description, :label => "Verification", :hint => "Describe how we can verify the winner", :input_html => { :rows => 10, :cols => 10, :maxlength => 500 } %>
+	<% if current_user.try(:admin?) %>	
+		<%= f.input :confirmed %>
+		<%= f.input :status, :as => :select, :collection => [["Undecided", "Undecided"], ["Won", "Won"], ["Lost", "Lost"]], :include_blank => false %>
+	<% end%>
   <% end %>	
   <%= f.buttons %>
 <% end %>

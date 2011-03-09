@@ -141,4 +141,5 @@ Devise.setup do |config|
   # end
   config.rpx_application_name = "betyoulose"
   RPXNow.api_key = "cf092ec548c520ba341fe1cecfd2b945e114e1b8"
+  config.rpx_additional_user_data = [:displayName]
 end

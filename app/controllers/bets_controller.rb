@@ -5,27 +5,35 @@ class BetsController < ApplicationController
   before_filter :find_bet, :except => [:index, :new, :create]
   
   def index
-    respond_with(@bets = Bet.paginate(:per_page => 5, :page => params[:page]))
+    if !params[:search]
+      params["search"] = {"meta_sort" => "wagers_count.desc"}
+    end  
+    @search = Bet.search(params[:search])
+    @bets = @search.paginate(:per_page => 2, :page => params[:page])
   end
 
   def show
+    @wagers = @bet.wagers.paginate(:per_page => 2, :page => params[:page])
   end
 
   def new
-    respond_with(@bet = Bet.new)
+    @bet = Bet.new
+    @bet.end_date = 3.days.from_now
+    respond_with(@bet)
   end
 
   def create
     @bet = Bet.new(params[:bet])
-    unless @bet.wager_amount > current_user.wallet.credits  
-      @bet.user = current_user
-      if @bet.save
-        respond_with(@bet, :notice => "Successfully created bet.")
-      else
-        render :action => 'new'
-      end
+    @bet.confirmed = true if current_user.admin?
+    @bet.user = current_user
+    if @bet.save
+      @bet.wagers.create(:credits => @bet.wager_amount, :against => false, :user_id => @bet.user.id)
+      @bet.user.wallet.credits -= @bet.wager_amount
+      @bet.user.wallet.save
+      @bet.user.wallet.transactions.create!(:description => "Created Bet for #{@bet.wager_amount.to_s} credits.", :bet_id => @bet)
+      respond_with(@bet, :notice => "Successfully created bet.")
     else
-      render :action => 'new', :notice => "You do not have enough credits to create a bet that size"
+      render :action => 'new'
     end  
   end
 
@@ -33,7 +41,10 @@ class BetsController < ApplicationController
   end
 
   def update
+    old_status = @bet.status
+    @bet.verified = true if params[:bet][:status] != 'Undecided'
     if @bet.update_attributes(params[:bet])
+      @bet.assign_winnings(@bet.status) if @bet.status != old_status
       respond_with(@bet, :notice  => "Successfully updated bet.")
     else
       render :action => 'edit'

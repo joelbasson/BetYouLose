@@ -1,0 +1,12 @@
+<div id="previews"> 
+	
+	<% if @transactions.size == 0 %>
+		&nbsp
+	<% end %>
+	
+<% for transaction in @transactions do %>
+	<%= transaction.description %><br />
+<% end %>	
+
+<%= will_paginate @transactions, :params => {:controller => "wallets", :action => "show"} %>
+</div>

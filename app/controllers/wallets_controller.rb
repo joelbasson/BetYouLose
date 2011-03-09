@@ -4,6 +4,7 @@ class WalletsController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :show]
   
   def show  
+    @transactions = current_user.wallet.transactions.paginate(:per_page => 2, :page => params[:page])
   end
   
   def buy

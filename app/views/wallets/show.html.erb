@@ -1,6 +1,14 @@
 <% title "My Wallet" %>
 
+<p><%= link_to "Buy Credits", wallet_buy_path(current_user.wallet) %></p>
+
 <p>
   <strong>Credits:</strong>
   <%= @wallet.credits %>
 </p>
+
+<p>
+  <strong>Transactions :</strong>
+</p>
+
+<%= render 'transactions' %>

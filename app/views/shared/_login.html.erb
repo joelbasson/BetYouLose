@@ -1,7 +1,7 @@
 <div id="user_nav">
 	<% if user_signed_in? %>
-      Credits <%= current_user.wallet.credits %> <%= link_to "Buy", wallet_buy_path(current_user.wallet) %><!-- Signed in as <%= current_user.email %>. Not you? -->
-      <%= link_to "Sign out", destroy_user_session_path %>
+      <%= link_to "Credits " + current_user.wallet.credits.to_s, current_user.wallet, :title => "View Account" %> | <!-- Signed in as <%= current_user.email %>. Not you? -->
+      <%= link_to "Sign out", destroy_user_session_path, :title => "Signed in as " + current_user.display_name %>
     <% else %>
       <%= link_to_rpx "Sign in", user_session_url %>
     <% end %>

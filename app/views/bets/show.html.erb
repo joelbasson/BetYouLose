@@ -3,5 +3,9 @@
 <div class="center-inner">
 	
 	<%= render @bet %>
-	<%= link_to "Bet " + @bet.wager_amount.to_s + " against", bet_now_path(@bet, :against => 'true'), :confirm => 'Are you sure?' %> or <%= link_to "Bet " + @bet.wager_amount.to_s + " for", bet_now_path(@bet, :against => 'false'), :confirm => 'Are you sure?' %>
+	<% if @bet.status == "Undecided" %>
+		<%= link_to "Bet " + @bet.wager_amount.to_s + " against", bet_now_path(@bet, :against => 'true'), :confirm => 'Are you sure?', :remote => true %> or <%= link_to "Bet " + @bet.wager_amount.to_s + " for", bet_now_path(@bet, :against => 'false'), :confirm => 'Are you sure?', :remote => true %>
+	<% end %>
 </div>
+
+<%= render 'wagers' %>

@@ -1,8 +1,8 @@
-<div class="bet">
+<div id="bet-<%= bet.id %>" class="bet-panel <%= bet.status.downcase %>">
 	<div class="bet-title"><%= bet.title %></div>
 	<div class="bet-description"><%= bet.description %></div>
 	<div class="bet-end-date">Ends <%= bet.end_date.strftime("%a %d %b %Y") %></div>
-	<div class="bet-wager-amount">Total bets : <%= bet.wagers.size %> worth <%= bet.wagers.sum(:credits) %> credits</div>
+	<div class="bet-wager-amount">Total bets : <%= bet.total_wagers %> worth <%= bet.total_value %> credits</div>
 	<div class="bet-wager-amount"><%= bet.wagers.bets_for.size %> bets for - <%= bet.wagers.bets_against.size %> bets against</div>
 	<div class="bet-wager-amount">Default wager amount : <%= bet.wager_amount %> credits</div>
 	<div class="bet-display-name">created by <%= bet.display_name %></div>
@@ -11,6 +11,7 @@
 		<% if current_user.try(:admin?) %>	
 			<div class="bet-verified">Verified : <%= bet.verified %></div>
 			<div class="bet-confirmed">Confirmed : <%= bet.confirmed %></div>
+			<div class="bet-confirmed">Status : <%= bet.status %></div>
 			<div class="bet-admin-links">
 				<%= link_to "Edit", edit_bet_path(bet) %> |
 				<%= link_to "Destroy", bet, :confirm => 'Are you sure?', :method => :delete %>
