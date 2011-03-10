@@ -8,7 +8,7 @@ class BetsController < ApplicationController
     if !params[:search]
       params["search"] = {"meta_sort" => "wagers_count.desc"}
     end  
-    @search = Bet.standard.search(params[:search])
+    @search = Bet.search(params[:search])
     @bets = @search.paginate(:per_page => 2, :page => params[:page])
   end
 
