@@ -1,11 +1,15 @@
 <% title "My Wallet" %>
 
-<p><%= link_to "Buy Credits", wallet_buy_path(current_user.wallet) %></p>
+<div class="thin-border">
+<h3>My Credits </h3>	
 
 <p>
   <strong>Credits:</strong>
   <%= @wallet.credits %>
 </p>
+<p><%= link_to "Buy Credits >>", wallet_buy_path(current_user.wallet) %></p>
+
+</div>
 
 <div class="my-links bold">
   	<%= link_to "Transactions", {:controller => "wallets", :action => "show"}, :remote => true %>  | 

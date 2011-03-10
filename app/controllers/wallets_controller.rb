@@ -4,9 +4,7 @@ class WalletsController < ApplicationController
   before_filter :authenticate_user!
   
   def show  
-    @transactions = current_user.wallet.transactions.order("created_at DESC").paginate(:per_page => 2, :page => params[:page])
-    @bets = current_user.bets.paginate(:per_page => 2, :page => params[:page])
-    @wagers = current_user.wagers.paginate(:per_page => 2, :page => params[:page])
+    @transactions = current_user.wallet.transactions.order("created_at DESC").paginate(:per_page => 5, :page => params[:page])
   end
   
   def buy

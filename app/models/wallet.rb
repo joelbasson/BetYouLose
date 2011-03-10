@@ -5,7 +5,7 @@ class Wallet < ActiveRecord::Base
   validates_numericality_of :credits
   
   def validate_purchase(credits)
-    if credits.to_i != 0 && credits.to_i > 50 && credits.to_i < 500 && credits.to_i % 1 == 0
+    if credits.to_i != 0 && credits.to_i > 49 && credits.to_i < 501 && credits.to_i % 1 == 0
       return true
     end
     return false  

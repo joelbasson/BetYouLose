@@ -70,7 +70,7 @@ h2
 #head-menu
 {
 	margin: 0 auto;
-	height:30px;
+	height:40px;
 	background:white;
 	border-bottom-right-radius:10px;
 	border-bottom-left-radius:10px;
@@ -103,7 +103,7 @@ h2
 	float:right;
 }
 
-@media only screen and (min-width: 999px) {
+@media not screen and (min-device-width: 320px) and (max-device-width: 480px), (-webkit-min-device-pixel-ratio: 2) {
 	
   	#main-page
 	{
@@ -153,41 +153,45 @@ h2
 	{
 		height:175px;
 	}
+	.bet-panel, .bet-panel-small
+	{
+		padding:10px 10px 10px 10px;
+	}
 }
-
-@media only screen and (device-width: 768px) and (orientation: landscape) {
+/*
+@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait) {
 	
 	#main-page
 	{
-	  min-width: 768px;
+	  min-width: 481px;
 	}
   	#container 
 	{
-	  width: 700px;
+	  width: 450px;
 	}
 	#head-menu
 	{
-		width: 700px;
+		width: 450px;
 	}
 	#logo-title
 	{
-		padding:0 0 0 100px;
+		padding:0 0 0 10px;
 	}
 	.line
 	{
-	    width: 768px;
+	    width: 481px;
 	}
 	.footer
 	{
-	    width: 700px;
+	    width: 450px;
 	}
 	.center-inner
 	{
-		width:680px;
+		width:450px;
 	}
 	#previews
 	{
-		width:680px;	
+		width:450px;	
 	}
 	.bet-panel-small
 	{
@@ -205,7 +209,7 @@ h2
 	{
 		height:190px;
 	}
-}
+}*/
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
   
@@ -255,7 +259,12 @@ h2
 	{
 		height:190px;
 	}
+	.bet-panel, .bet-panel-small
+	{
+		padding:10px 10px 10px 10px;
+	}
 }
+
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
 	
 	#main-page, #main-page a 
@@ -265,6 +274,14 @@ h2
 	.bet-panel-small
 	{
 		height:260px;
+	}
+	.bet-panel, .bet-panel-small
+	{
+		padding:10px 0 !important;
+	}
+	#previews
+	{
+		padding:0 !important;
 	}
 	#logo-title
 	{
@@ -344,6 +361,7 @@ h2
 
 #user_nav {
   float: right;
+  margin-top: 20px;
 }
 
 .center-inner
@@ -389,7 +407,6 @@ h2
 
 .bet-panel, .bet-panel-small
 {
-    padding:10px 10px 10px 10px;
 	background: #fff;
 	box-shadow: 0px 0px 7px #248cab;
 	-webkit-box-shadow: 0px 0px 7px #248cab;
@@ -464,7 +481,7 @@ h2
 {
 	font-weight:bold;
 	font-style:italic;
-	font-size:17px;
+	font-size:larger;
 	color:#CD4F39;
 }
 /* End Bets */
@@ -564,3 +581,22 @@ h2
 
 }
 /* end Pagination */
+
+.thin-border
+{
+	padding:10px 10px 10px 20px;
+	background: #fff;
+	box-shadow: 0px 0px 3px black;
+	-webkit-box-shadow: 0px 0px 4px black;
+	-moz-box-shadow: 0px 0px 4px black;
+	-moz-border-radius: 15px;
+	border-radius: 10px;
+	border-top-left-radius: 10px 10px;
+	border-top-right-radius: 10px 10px;
+	border-bottom-right-radius: 10px 10px;
+	border-bottom-left-radius: 10px 10px;
+	border:1px solid black;
+	margin-bottom:25px;
+    position:relative;
+	width:200px;
+}
