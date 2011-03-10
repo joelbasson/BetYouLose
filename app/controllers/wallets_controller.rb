@@ -35,4 +35,5 @@ class WalletsController < ApplicationController
   def get_wallet
     @wallet = current_user.wallet
   end  
+  
 end
