@@ -1,4 +1,7 @@
 Betyoulose::Application.routes.draw do
+  match 'wagers/my_wagers' => 'wagers#my_wagers', :as => :my_wagers
+  match 'bets/my_bets' => 'bets#my_bets', :as => :my_bets
+  
   resources :wallets, :only => [:show] do
     get 'buy'
     post 'purchase'

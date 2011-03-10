@@ -2,18 +2,18 @@ class BetsController < ApplicationController
   respond_to :html, :xml, :json, :js
   before_filter :authenticate_user!, :except => [:index, :show]
   before_filter :authenticate_admin, :only => [:edit, :destroy]
-  before_filter :find_bet, :except => [:index, :new, :create]
+  before_filter :find_bet, :except => [:index, :new, :create, :my_bets]
   
   def index
     if !params[:search]
       params["search"] = {"meta_sort" => "wagers_count.desc"}
     end  
-    @search = Bet.search(params[:search])
+    @search = Bet.standard.search(params[:search])
     @bets = @search.paginate(:per_page => 2, :page => params[:page])
   end
 
   def show
-    @wagers = @bet.wagers.paginate(:per_page => 2, :page => params[:page])
+    @wagers = @bet.wagers.order("created_at DESC").paginate(:per_page => 2, :page => params[:page])
   end
 
   def new
@@ -54,6 +54,10 @@ class BetsController < ApplicationController
   def destroy
     @bet.destroy
     respond_with(@bet, :notice => "Successfully destroyed bet.")
+  end
+  
+  def my_bets  
+    @bets = current_user.bets.paginate(:per_page => 2, :page => params[:page])
   end
   
   private 

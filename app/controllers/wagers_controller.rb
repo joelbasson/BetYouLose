@@ -1,6 +1,10 @@
 class WagersController < ApplicationController
   respond_to :html, :xml, :json, :js
   before_filter :authenticate_user!
+  
+  def my_wagers  
+    @wagers = current_user.wagers.paginate(:per_page => 2, :page => params[:page])
+  end
 
   def bet_now
     @bet = Bet.find(params[:bet_id])

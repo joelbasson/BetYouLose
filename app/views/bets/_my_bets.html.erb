@@ -1,0 +1,12 @@
+<div id="previews" class="wagers"> 
+	
+	<% if @bets.size == 0 %>
+		&nbsp
+	<% end %>
+	
+<% for bet in @bets do %>
+	<%= bet.title %> - Status :<span class="bold"><%= bet.status %></span> created on  <%= bets.created_at.strftime("%a %d %b %Y %I:%M %p") %><br />
+<% end %>	
+
+<%= will_paginate @bets, :params => {:controller => "bets", :action => "my_bets"} %>
+</div>

@@ -19,9 +19,11 @@
 	      <% end %>
 	      <div id='title'><%= content_tag :h2, yield(:title) if show_title? %></div>
 	      <%= yield %>
-		  <div class="clear"></div>	
-		  <div class="line"></div>
 	    </div>
+		<div class="line"></div>
+		<div class="footer">
+			&copy; BetYouLoose 2011
+		</div>
 	</div>
 	<%= javascript_include_rpx(user_session_url) %>
   </body>

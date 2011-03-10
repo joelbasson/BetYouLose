@@ -46,7 +46,6 @@ h1
 	font-weight:bold;
 	text-decoration:none;
 	color:black;
-	padding:0 0 0 100px;
 }
 
 h2
@@ -58,14 +57,12 @@ h2
 #title
 {
 	width:75%;
-	margin: 0 auto;
-	margin-bottom:30px;
+	margin: 0 auto 30px;
 	text-align: center;
 }
 
 #main-page
 {
-	min-width: 980px;
 	background-image: url('/images/grey-gradient.png');
 	background-repeat:repeat-x;
 }
@@ -73,7 +70,6 @@ h2
 #head-menu
 {
 	margin: 0 auto;
-	width: 940px;
 	height:30px;
 	background:white;
 	border-bottom-right-radius:10px;
@@ -84,16 +80,201 @@ h2
 #container 
 {
   margin: 20px auto 0px;
-  width: 940px;
   background-color: white;
+  border-top-right-radius:10px;
+  border-top-left-radius:10px;
   padding: 20px 20px 20px 20px;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
+  background-image: -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    color-stop(0.6, rgb(242,252,252)),
+    color-stop(0.75, rgb(229,255,255))
+  );
+  background-image: -moz-linear-gradient(
+    center bottom,
+    rgb(242,252,252) 60%,
+    rgb(229,255,255) 75%
+  );
 }
 
 #menu
 {
 	float:right;
+}
+
+@media only screen and (min-width: 999px) {
+	
+  	#main-page
+	{
+	  min-width: 980px;
+	}
+  	#container 
+	{
+	  width: 940px;
+	}
+	#head-menu
+	{
+		width: 940px;
+	}
+	#logo-title
+	{
+		padding:0 0 0 100px;
+	}
+	.line
+	{
+	    width: 980px;
+	}
+	.footer
+	{
+	    width: 940px;
+	}
+	.center-inner
+	{
+		width:840px;
+	}
+	#previews
+	{
+		width:840px;	
+	}
+	.bet-panel-small
+	{
+		width: 380px;
+	}
+	.even
+	{
+		margin-right:15px;
+	}
+	.odd
+	{
+		margin-left:15px;
+	}
+	.bet-panel-small
+	{
+		height:190px;
+	}
+}
+
+@media only screen and (device-width: 768px) and (orientation: landscape) {
+	
+	#main-page
+	{
+	  min-width: 768px;
+	}
+  	#container 
+	{
+	  width: 700px;
+	}
+	#head-menu
+	{
+		width: 700px;
+	}
+	#logo-title
+	{
+		padding:0 0 0 100px;
+	}
+	.line
+	{
+	    width: 768px;
+	}
+	.footer
+	{
+	    width: 700px;
+	}
+	.center-inner
+	{
+		width:680px;
+	}
+	#previews
+	{
+		width:680px;	
+	}
+	.bet-panel-small
+	{
+		width: 380px;
+	}
+	.even
+	{
+		margin-right:15px;
+	}
+	.odd
+	{
+		margin-left:15px;
+	}
+	.bet-panel-small
+	{
+		height:190px;
+	}
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  
+	#main-page
+	{
+	  width: 100%;
+	}
+  	#container 
+	{
+	  width: 90%;
+	}
+	#head-menu
+	{
+		width: 90%;
+	}
+	#logo-title
+	{
+		padding:0;
+		font-size:40px !important;
+	}
+	.line
+	{
+	    width: 100%;
+	}
+	.footer
+	{
+	    width: 90%;
+	}
+	.bet-panel-small
+	{
+		clear:both;
+		width:100%;
+	}
+	.center-inner
+	{
+		width:90%;
+	}
+	#previews
+	{
+		width:90%;
+	}
+	.even, .odd
+	{
+		margin:0;
+	}
+	.bet-panel-small
+	{
+		height:190px;
+	}
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+	
+	#main-page, #main-page a 
+	{
+	  font-size:30px;
+	}
+	.bet-panel-small
+	{
+		height:260px;
+	}
+	#logo-title
+	{
+		font-size:50px !important;
+	}
+	input[type=text], input[type=search]
+	{
+		height:30px;
+		width:200px;
+	}
 }
 
 .flash
@@ -170,9 +351,33 @@ h2
 	margin: 0 auto;
 	padding-left:20px;
 	padding-right:10px;
-	width: 725px;
 }
 
+.line
+{
+	border:1px solid #B0B0B0;
+	margin: 0 auto;
+}
+
+.footer
+{
+	margin: 0 auto;
+	background-color: white;
+	padding: 0 20px 0 20px;
+	text-align:center;
+	font-size:13px;
+}
+
+.bold
+{
+	font-weight:bold;
+}
+
+.search
+{
+	float:left;
+	padding-left:20px;
+}
 /* Start Bets */
 
 #previews
@@ -180,27 +385,30 @@ h2
 	margin: 0 auto;
 	padding-left:20px;
 	padding-right:10px;
-	width: 725px;
 }
 
-.bet-panel
+.bet-panel, .bet-panel-small
 {
-	clear: both;
     padding:10px 10px 10px 10px;
 	background: #fff;
-	box-shadow: 0px 0px 7px black;
-	-webkit-box-shadow: 0px 0px 7px black;
-	-moz-box-shadow: 0px 0px 7px black;
+	box-shadow: 0px 0px 7px #248cab;
+	-webkit-box-shadow: 0px 0px 7px #248cab;
+	-moz-box-shadow: 0px 0px 7px #248cab;
 	-moz-border-radius: 15px;
 	border-radius: 10px;
 	border-top-left-radius: 10px 10px;
 	border-top-right-radius: 10px 10px;
 	border-bottom-right-radius: 10px 10px;
 	border-bottom-left-radius: 10px 10px;
-    width: 700px;
 	margin-bottom:25px;
     position:relative;
     float:left;
+}
+
+.bet-panel
+{
+	clear: both;
+	width: 700px;
 }
 
 .won
@@ -208,29 +416,90 @@ h2
 	opacity: .3;
 }
 
-.bet-title
+.bet-title, .bet-title a
 {
 	text-align:center;
 	padding-bottom:10px;
-	font-size:17px;
 	font-weight:bold;
+	font-family: 'Molengo', arial, serif; 
+	color:black;
 }
 
 .bet-end-date
 {
+	margin-top:10px;
 	font-style:italic;
+	float:left;
+}
+
+.bet-display-name-line
+{
+	margin-top:10px;
+	font-size:smaller;
+	float:left;
 }
 
 .bet-display-name
 {
-	font-size:13px;
+	font-weight:bold;
 }
 
 .sort-links
 {
 	text-align:center;
 }
+
+.bet-wager-info
+{
+	float:right;
+	font-size:70%;
+	margin-top:10px;
+}
+
+.bet-status
+{
+	font-weight:bold;
+	font-style:italic;
+	font-size:17px;
+	color:#CD4F39;
+}
 /* End Bets */
+
+/* Start Wagers*/
+
+.wagers
+{
+	font-size:15px;
+}
+
+.wager-links
+{
+	text-align:center;
+	font-size:18px;
+}
+
+.wager-links a
+{
+	font-size:24px;
+}
+
+/* End Wagers*/
+
+.my-links
+{
+	text-align:center;
+	font-size:18px;
+}
+
+.my-links a
+{
+
+}
+/* Other */
+
+
+/* End Other*/
+
 /*.pagination
 {
 	margin:20px 0 0 20px;

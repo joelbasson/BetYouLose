@@ -1,0 +1,6 @@
+$('#errors_for_<%= escape_javascript(@model.class.name.underscore) %>').html('Oops! <ul><%= raw(escape_javascript(@model.errors.collect{|k,v| "<li>The #{k} field #{v}</li>"}.to_s )) %> </ul>')
+<% @model.errors.each do |attr,msg| %>
+	$('li[id*="<%= attr.to_s %>"]').effect("highlight", {}, 3000);
+<% end %>	
+$('#errors_for_<%= escape_javascript(@model.class.name.underscore) %>').effect("highlight", {}, 3000);
+$('input[type=submit]').removeAttr('disabled')

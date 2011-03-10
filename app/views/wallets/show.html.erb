@@ -7,8 +7,10 @@
   <%= @wallet.credits %>
 </p>
 
-<p>
-  <strong>Transactions :</strong>
-</p>
+<div class="my-links bold">
+  	<%= link_to "Transactions", {:controller => "wallets", :action => "show"}, :remote => true %>  | 
+	<%= link_to "My Bets", my_bets_path, :remote => true %> | 
+	<%= link_to "My Betting History", my_wagers_path, :remote => true %>
+</div>
 
 <%= render 'transactions' %>

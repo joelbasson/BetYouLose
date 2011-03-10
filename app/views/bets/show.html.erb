@@ -2,10 +2,34 @@
 
 <div class="center-inner">
 	
-	<%= render @bet %>
+	<div id="bet-<%= @bet.id %>" class="bet-panel">
+		<div class="bet-title"><%= @bet.title %></div>
+		<div class="bet-description"><%= @bet.description %></div>
+		<div class="bet-end-date">Ends <%= @bet.end_date.strftime("%a %d %b %Y") %></div>
+		<div class="bet-wager-amount">Total bets : <%= @bet.total_wagers %> worth <%= @bet.total_value %> credits</div>
+		<div class="bet-wager-amount"><%= @bet.wagers.bets_for.size %> bets for - <%= @bet.wagers.bets_against.size %> bets against</div>
+		<div class="bet-wager-amount">Default wager amount : <%= @bet.wager_amount %> credits</div>
+		<div class="bet-display-name">created by <%= @bet.display_name %></div>
+		<div class="bet-verify-description">How to verify bet : <%= auto_link(@bet.verify_description, :link => :urls, :html => { :target => '_blank', :rel => 'nofollow' }) %></div>	
+		<div class="bet-status">Status : <%= @bet.status %></div>
+		<% if current_user.try(:admin?) %>	
+			<div class="bet-verified">Verified : <%= @bet.verified %></div>
+			<div class="bet-confirmed">Confirmed : <%= @bet.confirmed %></div>			
+			<div class="bet-admin-links">
+				<%= link_to "Edit", edit_bet_path(@bet) %> |
+				<%= link_to "Destroy", @bet, :confirm => 'Are you sure?', :method => :delete %>
+			</div>
+		<% end %>
+	</div>
+	
 	<% if @bet.status == "Undecided" %>
-		<%= link_to "Bet " + @bet.wager_amount.to_s + " against", bet_now_path(@bet, :against => 'true'), :confirm => 'Are you sure?', :remote => true %> or <%= link_to "Bet " + @bet.wager_amount.to_s + " for", bet_now_path(@bet, :against => 'false'), :confirm => 'Are you sure?', :remote => true %>
+		<div class="wager-links">
+			<%= link_to "Bet " + @bet.wager_amount.to_s + " that he's wong", bet_now_path(@bet, :against => 'true'), :confirm => 'Are you sure?', :remote => true %> or <%= link_to "Bet " + @bet.wager_amount.to_s + " that he's right", bet_now_path(@bet, :against => 'false'), :confirm => 'Are you sure?', :remote => true %>
+		</div>
 	<% end %>
+	
+	<h3>Wagers Placed</h3>
+	<%= render 'wagers' %>
+	
 </div>
 
-<%= render 'wagers' %>

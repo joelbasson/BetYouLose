@@ -18,6 +18,15 @@ $(function() {
 			 	$.getScript(location.pathname);
 			}
 		});
+		
+	$("#bet_search").live("submit", function(){
+		var url = $("#bet_search").serialize();
+		var fullUrl = $("#bet_search").attr("action") + "?" + url
+		$.get($("#bet_search").attr("action"), url, null, "script");
+		currentPage = url;
+		history.pushState(null, fullUrl, fullUrl);
+    	return false;
+	});	
 });
 
 function flashNotice() {
