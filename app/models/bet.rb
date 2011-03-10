@@ -12,7 +12,7 @@ class Bet < ActiveRecord::Base
   validates_length_of :description, :maximum => 500
   validates_length_of :verify_description, :minimum => 20
   validates_length_of :verify_description, :maximum => 500
-  scope :standard, :group => "verified, id", :order => "verified ASC", :conditions => ["end_date >= ? AND confirmed = ?", Time.zone.now, true]  
+  scope :standard, :order => "verified ASC", :conditions => ["end_date >= ? AND confirmed = ?", Time.zone.now, true]  
   validate do |bet|
       bet.errors.add(:end_date, "end date must be after now") if bet.end_date < Time.now
       bet.errors.add(:wager_amount, "not enough credits for this wager amount") if (bet.wager_amount && bet.wager_amount > bet.user.wallet.credits)
