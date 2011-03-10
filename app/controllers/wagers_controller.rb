@@ -13,11 +13,13 @@ class WagersController < ApplicationController
       current_user.wallet.credits -= @bet.wager_amount
       current_user.wallet.save
       current_user.wallet.transactions.create!(:description => "Bet #{@bet.wager_amount.to_s} credits.", :bet_id => @bet)
+      flash[:notice] = "Bet #{@bet.wager_amount.to_s} credits."
       respond_with(@bet) do |format|
         format.html { redirect_to @bet }
       end  
     else
-      redirect_to :back, :notice => "You do not have enough credits to bet on this. Try purchasing more credits"
+      flash[:notice] = "You do not have enough credits to bet on this. Try purchasing more credits"
+      respond_with(@bet)
     end
   end
     

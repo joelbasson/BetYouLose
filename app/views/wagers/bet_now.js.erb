@@ -1,6 +1,8 @@
+<% if !@bet.errors.empty?  %>
 $('#bet-<%= escape_javascript(@bet.id.to_s) %>').replaceWith('<%= escape_javascript(render @bet) %>')
 $("#user_nav").replaceWith("<%= escape_javascript(render 'shared/login') %>")
 $('#bet-<%= escape_javascript(@bet.id.to_s) %>').effect("highlight", {}, 3000);
+<% end %>
 $('.flash').remove();
 $("#container").prepend('<div class="flash notice" style="display: none"><%= escape_javascript(flash.delete(:notice)) %></div>');
 flashNotice();
