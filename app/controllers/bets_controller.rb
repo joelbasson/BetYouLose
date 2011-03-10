@@ -13,7 +13,7 @@ class BetsController < ApplicationController
   end
 
   def show
-    @wagers = @bet.wagers.order("created_at DESC").paginate(:per_page => 2, :page => params[:page])
+    @wagers = @bet.wagers.order("created_at DESC").paginate(:per_page => 5, :page => params[:page])
   end
 
   def new

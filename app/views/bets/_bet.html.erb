@@ -7,5 +7,5 @@
 		<div class="bet-wager-amount"><%= bet.wagers.bets_for.size %> bets for - <%= bet.wagers.bets_against.size %> bets against</div>
 		<div class="bet-wager-amount">Default wager amount : <%= bet.wager_amount %> credits</div>
 	</div>
-	<div class="bet-display-name-line"><span class="bet-display-name"><%= bet.display_name %></span> says BetYouLose!</div>
+	<div class="bet-display-name-line"><span class="bet-display-name"><%= bet.display_name %></span> says <%= APP_CONFIG["application_name"] %>!</div>
 </div>	
