@@ -103,7 +103,7 @@ h2
 	float:right;
 }
 
-@media not screen and (min-device-width: 320px) and (max-device-width: 480px), (-webkit-min-device-pixel-ratio: 2) {
+@media screen and (min-device-width: 768px) {
 	
   	#main-page
 	{
@@ -158,85 +158,43 @@ h2
 		padding:10px 10px 10px 10px;
 	}
 }
-/*
-@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait) {
-	
-	#main-page
-	{
-	  min-width: 481px;
-	}
-  	#container 
-	{
-	  width: 450px;
-	}
-	#head-menu
-	{
-		width: 450px;
-	}
-	#logo-title
-	{
-		padding:0 0 0 10px;
-	}
-	.line
-	{
-	    width: 481px;
-	}
-	.footer
-	{
-	    width: 450px;
-	}
-	.center-inner
-	{
-		width:450px;
-	}
-	#previews
-	{
-		width:450px;	
-	}
-	.bet-panel-small
-	{
-		width: 380px;
-	}
-	.even
-	{
-		margin-right:15px;
-	}
-	.odd
-	{
-		margin-left:15px;
-	}
-	.bet-panel-small
-	{
-		height:190px;
-	}
-}*/
+
+@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait) {	
+	/* iPad only */
+}
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
   
-	#main-page
+/*	#main-page
 	{
 	  width: 100%;
-	}
-  	#container 
+	}*/
+  	#container, .footer 
 	{
-	  width: 90%;
+	  	width: 280px !important;
+		padding:20px 10px !important;
 	}
 	#head-menu
 	{
-		width: 90%;
+		width: 80% !important;
+		height:20px !important;
+	}
+	#user_nav
+	{
+	  	margin-top: 0 !important;
+	}
+	#user_nav a
+	{
+		font-size:10px;
 	}
 	#logo-title
 	{
 		padding:0;
-		font-size:40px !important;
+		font-size:20px !important;
 	}
 	.line
 	{
-	    width: 100%;
-	}
-	.footer
-	{
-	    width: 90%;
+	    width:300px !important;
 	}
 	.bet-panel-small
 	{
@@ -245,11 +203,13 @@ h2
 	}
 	.center-inner
 	{
-		width:90%;
+		width:100%;
+		padding:0 !important;
 	}
 	#previews
 	{
-		width:90%;
+		width:100%;
+		padding:0 !important;
 	}
 	.even, .odd
 	{
@@ -257,41 +217,19 @@ h2
 	}
 	.bet-panel-small
 	{
-		height:190px;
+		height:270px !important;
+		width:270px !important;
+		padding:10px 5px 10px 5px !important;
 	}
-	.bet-panel, .bet-panel-small
+	.bet-panel
 	{
-		padding:10px 10px 10px 10px;
+		width:270px !important;
+		padding:10px 5px 10px 5px !important;
 	}
 }
 
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
-	
-	#main-page, #main-page a 
-	{
-	  font-size:30px;
-	}
-	.bet-panel-small
-	{
-		height:260px;
-	}
-	.bet-panel, .bet-panel-small
-	{
-		padding:10px 0 !important;
-	}
-	#previews
-	{
-		padding:0 !important;
-	}
-	#logo-title
-	{
-		font-size:50px !important;
-	}
-	input[type=text], input[type=search]
-	{
-		height:30px;
-		width:200px;
-	}
+	/* iPhone 4 only*/
 }
 
 .flash

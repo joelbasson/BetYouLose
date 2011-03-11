@@ -26,7 +26,11 @@
 	
 	<% if @bet.status == "Undecided" %>
 		<div class="wager-links">
-			<%= link_to "Bet " + @bet.wager_amount.to_s + " that he's wong", bet_now_path(@bet, :against => 'true'), :confirm => 'Are you sure?', :remote => true %> or <%= link_to "Bet " + @bet.wager_amount.to_s + " that he's right", bet_now_path(@bet, :against => 'false'), :confirm => 'Are you sure?', :remote => true %>
+			<% if user_signed_in? %>
+				<%= link_to "Bet " + @bet.wager_amount.to_s + " that he's wong", bet_now_path(@bet, :against => 'true'), :confirm => 'Are you sure?', :remote => true %> or <%= link_to "Bet " + @bet.wager_amount.to_s + " that he's right", bet_now_path(@bet, :against => 'false'), :confirm => 'Are you sure?', :remote => true %>
+			<% else %>
+				<%= link_to "Bet " + @bet.wager_amount.to_s + " that he's wong", user_session_url %> or <%= link_to "Bet " + @bet.wager_amount.to_s + " that he's right", user_session_url %>
+			<% end %>
 		</div>
 	<% end %>
 	
