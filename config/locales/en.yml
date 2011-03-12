@@ -3,4 +3,3 @@
 
 en:
   hello: "Hello world"
-  rpx_invalid: "Could not login. Invalid account or you have registed with that email via a different service."

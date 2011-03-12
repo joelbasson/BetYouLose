@@ -1,7 +1,7 @@
 <% form_tag(wallet_purchase_path, :method=>'post' ) do %>
 
 	<p>Amount:<br />
-	   <%= number_field_tag "credits", nil, :min => 50, :max => 500, :step => 5 %>
+	   <%= number_field_tag "credits", nil, :min => 50, :max => 500, :step => 50 %>
 	</p>
 	<p>
 	   <%= submit_tag 'Buy' %>

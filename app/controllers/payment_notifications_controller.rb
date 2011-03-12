@@ -7,7 +7,7 @@ class PaymentNotificationsController < ApplicationController
       if @payment_notification.status != "Completed"
         redirect_to root_url, :notice => "PayPal failed to authorize the payment. Reason given was - '#{@payment_notification.status}'"
       else
-        redirect_to root_url, :notice => "Successfully bought #{@payment_notification.transaction.amount.to_s} credits"
+        redirect_to root_url, :notice => "Successfully bought #{@payment_notification.purchase.amount.to_s} credits"
       end
     else
       redirect_to root_url, :notice => "Failed to authorize this payment. Reason is - '#{@payment_notification.errors.full_messages.to_sentence}'" 
