@@ -1,10 +1,11 @@
-<% form_tag(wallet_purchase_path, :method=>'post' ) do %>
-
-	<p>Amount:<br />
-	   <%= number_field_tag "credits", nil, :min => 50, :max => 500, :step => 50 %>
+<%= form_for @purchase, :as => :purchase, :url => wallet_purchase_path do |f| %>
+	<%= error_messages_for(@purchase) %>
+	
+	<p><%= f.label :amount, "Amount" %>
+	   <%= f.number_field :amount, :min => 50, :max => 500, :step => 50 %>
 	</p>
 	<p>
-	   <%= submit_tag 'Buy' %>
+	   <%= f.submit 'Buy' %>
 	</p>
 	
 <% end %>

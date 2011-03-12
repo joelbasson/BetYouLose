@@ -4,7 +4,7 @@
 	<div class="row-item border-left row-item-long"><%= purchase.user.email %></div>
 	<div class="row-item border-left row-item-short"><%= purchase.amount %></div>
 	<div class="row-item border-left row-item-short"><%= number_to_currency(purchase.value, :unit => "R") %></div>
-	<div class="row-item border-left row-item-long"><%= purchase.started_at.strftime("%d/%m/%Y %I:%M %p")  %></div>
+	<div class="row-item border-left row-item-long"><%= purchase.created_at.strftime("%d/%m/%Y %I:%M %p")  %></div>
 	<div class="row-item border-left row-item-long"><%= purchase.purchased_at.strftime("%d/%m/%Y %I:%M %p")  %></div>
 	<div class="row-item border-left row-item-long bold"><%= purchase.payment_notification.status %></div>
 	<div class="left"><%= link_to "info", purchase_payment_info_path(purchase), :remote => true %></div>

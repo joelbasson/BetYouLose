@@ -2,6 +2,12 @@ class Purchase < ActiveRecord::Base
   belongs_to :user
   belongs_to :wallet
   has_one :payment_notification
+  validates_presence_of :amount
+  validates_numericality_of :amount, :only_integer => true, :message => "can only be a whole number."
+  validates_inclusion_of :amount, :in => 50..500, :message => "can only be between 50 and 500."
+  validate do |purchase|
+      purchase.errors.add(:amount, "must be in multiples of 50") if purchase.amount && (purchase.amount / 50) % 1 != 0
+  end
   
   def paypal_url(return_url, notify_url)
     values = {
@@ -13,6 +19,7 @@ class Purchase < ActiveRecord::Base
       :notify_url => notify_url,
       :amount => self.value,
       :item_name => self.amount.to_s + " credits",     
+      :currency_code => "USD"
     }
     "https://www.sandbox.paypal.com/cgi-bin/webscr?" + values.to_query
   end

@@ -27,6 +27,19 @@ $(function() {
 		history.pushState(null, fullUrl, fullUrl);
     	return false;
 	});	
+	
+	$('#purchase_new').submit(function(){
+		value = $('#purchase_amount').val();
+		if (value == "")
+		{
+			alert("Amount cannot be empty");
+			return false;
+		}
+		else if (!confirm("Are you sure you would like to purchase " + value + " credits ?"))
+		{
+			return false;
+		}
+	});
 });
 
 function flashNotice() {
