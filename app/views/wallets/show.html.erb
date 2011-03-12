@@ -5,9 +5,10 @@
 
 <p>
   <strong>Credits:</strong>
-  <%= @wallet.credits %>
+  <%= @wallet.credits %><br /> 
+  <span class="small-text italics">worth approx. <%= number_to_currency(@wallet.credits  * get_credit_value, :unit => "$") %></span>
 </p>
-<p><%= link_to "Buy Credits >>", wallet_buy_path(current_user.wallet) %></p>
+<p><%= link_to "Buy Credits >>", wallet_buy_path(current_user.wallet), :class => "red-text" %></p>
 
 </div>
 

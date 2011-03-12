@@ -9,6 +9,18 @@ class Purchase < ActiveRecord::Base
       purchase.errors.add(:amount, "must be in multiples of 50") if purchase.amount && (purchase.amount / 50) % 1 != 0
   end
   
+  def assign_credit_value
+    self.value = self.amount * APP_CONFIG["credit_value"].to_d
+  end  
+  
+  def currency
+    APP_CONFIG["default_currency_code"]
+  end  
+  
+  def status
+    self.purchased_at ? "completed" : "waiting"
+  end  
+  
   def paypal_url(return_url, notify_url)
     values = {
       :business => 'test_1299876308_biz@betyoulose.com',
@@ -19,7 +31,7 @@ class Purchase < ActiveRecord::Base
       :notify_url => notify_url,
       :amount => self.value,
       :item_name => self.amount.to_s + " credits",     
-      :currency_code => "USD"
+      :currency_code => currency
     }
     "https://www.sandbox.paypal.com/cgi-bin/webscr?" + values.to_query
   end

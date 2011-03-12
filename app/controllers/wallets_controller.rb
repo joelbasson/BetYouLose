@@ -13,7 +13,7 @@ class WalletsController < ApplicationController
   
   def purchase
       @purchase = Purchase.new(params[:purchase])
-      @purchase.value = @purchase.amount * 2 if @purchase.amount
+      @purchase.assign_credit_value if @purchase.amount
       @purchase.user = current_user
       @purchase.wallet = current_user.wallet
       if @purchase.save

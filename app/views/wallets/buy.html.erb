@@ -1,5 +1,5 @@
 <% title "Purchase Credits" %>
 
 <p>You can purchase credits to create new bets or bet on existing bets. After clicking <em>'buy'</em> you will be taken through to PayPal to complete your purchase. Ensure you click through to 'Return to BetYouLose' to ensure a quicker confirmation of your purchase.</p>
-<p>Credits are sold at 50 credits for R25, or roughly $3 depending on the exchange rate on the given day. Minimum purchase is 50 credits and Maximum is 500. Credits must be bought in multiples of 50</p>
+<p>Credits are sold at 50 credits for <%= number_to_currency(50  * get_credit_value, :unit => def_cur) %>, or roughly <%= number_to_currency(50  * get_credit_value * 6.8, :unit => "R") %> depending on the exchange rate on the given day. Minimum purchase is 50 credits and Maximum is 500. Credits must be bought in multiples of 50</p>
 <%= render 'form' %>

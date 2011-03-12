@@ -11,7 +11,7 @@
   <body>
 	<div id='main-page'>
 		<div id='head-menu'>
-			<h1 id='logo'><%= APP_CONFIG["application_name"] %></h1><%= link_to APP_CONFIG["application_name"], root_url, :id => 'logo-title' %>
+			<h1 id='logo'><%= APP_CONFIG["application_name"] %></h1><%= link_to APP_CONFIG["application_name"], root_url, :id => 'logo-title', :class => "red-text" %>
 			<%= render 'shared/login'%>
 		</div>
     	<div id="container">

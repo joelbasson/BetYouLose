@@ -608,3 +608,23 @@ h2
 {
 	float:right;
 }
+
+.small-text
+{
+	font-size:smaller;
+}
+
+.italics
+{
+	font-style:italic;
+}
+
+.red-text, .red-text a
+{
+	color:#CD4F39;
+}
+
+.waiting
+{
+	background-color:#FFF8DC;
+}

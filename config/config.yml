@@ -1,11 +1,18 @@
 development:
   application_name: BetYouLose
+  credit_value: 0.1
+  default_currency: $
+  default_currency_code: USD
   admin_email: joelbasson@me.com
 
 test:
   application_name: BetYouLose
+  credit_value: 0.1
+  default_currency: $
   admin_email: joelbasson@me.com
 
 production:
   application_name: BetYouLose
+  credit_value: 0.1
+  default_currency: $
   admin_email: joelbasson@me.com
