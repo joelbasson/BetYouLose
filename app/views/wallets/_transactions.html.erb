@@ -5,7 +5,7 @@
 	<% end %>
 	
 <% for transaction in @transactions do %>
-	<%= transaction.description %><br />
+	<%= transaction.description %> on <%= transaction.created_at.strftime("%a %d %b %Y %I:%M %p") %><br />
 <% end %>	
 
 <%= will_paginate @transactions, :params => {:controller => "wallets", :action => "show"} %>

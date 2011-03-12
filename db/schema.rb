@@ -42,7 +42,6 @@ ActiveRecord::Schema.define(:version => 20110311213052) do
     t.integer  "amount"
     t.integer  "user_id"
     t.decimal  "value",        :precision => 8, :scale => 2
-    t.datetime "started_at"
     t.datetime "purchased_at"
     t.datetime "created_at"
     t.datetime "updated_at"
