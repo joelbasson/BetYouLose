@@ -10,7 +10,7 @@
 	<%= form_for @search do |f| %>
 	  <p>
 	    <%= f.label :title_or_description_or_display_name_contains, 'Search' %>
-	    <%= f.search_field :title_or_description_or_display_name_contains, :placeholder => "Search Bets Titles and Descriptions" %>
+	    <%= f.search_field :title_or_description_or_display_name_contains, :placeholder => "Search title, description and person" %>
 		<%= f.submit "Search" %>
 	  </p>
 	<% end %>
