@@ -12,15 +12,24 @@ class WalletsController < ApplicationController
   
   def purchase
     if @wallet.validate_purchase(params[:credits])
-      @wallet.credits += params[:credits].to_i
-      if @wallet.save
-        @wallet.transactions.create!(:description => "Purchased #{params[:credits].to_s} credits.")
-        flash[:notice] = "Successfully purchased #{params[:credits].to_s} credits."
-        redirect_to root_url
-      else
-        flash[:notice] = "Value must be a number greater than 50 and less than 500"
-        render :action => 'buy'
-      end
+      @purchase = Purchase.new
+      @purchase.amount = params[:credits].to_i
+      @purchase.value = @purchase.amount * 2
+      @purchase.user = current_user
+      @purchase.wallet = current_user.wallet
+      if @purchase.save
+        @wallet.transactions.create!(:description => "Attempted to purchase #{params[:credits].to_s} credits.")
+        redirect_to @purchase.paypal_url(payment_notifications_url,payment_notifications_url)
+      end  
+      # @wallet.credits += params[:credits].to_i
+      #      if @wallet.save
+      #        @wallet.transactions.create!(:description => "Purchased #{params[:credits].to_s} credits.")
+      #        flash[:notice] = "Successfully purchased #{params[:credits].to_s} credits."
+      #        redirect_to root_url
+      #      else
+      #        flash[:notice] = "Value must be a number greater than 50 and less than 500"
+      #        render :action => 'buy'
+      #      end
     else
       flash[:notice] = "Value must be a number greater than 50 and less than 500"
       render :action => 'buy'

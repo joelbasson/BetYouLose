@@ -17,6 +17,7 @@ en:
     sessions:
       signed_in: 'Signed in successfully.'
       signed_out: 'Signed out successfully.'
+      rpx_invalid: "Could not login. Invalid account or you have registed with that email via a different service."
     passwords:
       send_instructions: 'You will receive an email with instructions about how to reset your password in a few minutes.'
       updated: 'Your password was changed successfully. You are now signed in.'

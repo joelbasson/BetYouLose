@@ -1,0 +1,18 @@
+<div id="pagination">
+	
+	<p class="sort-links">
+	  Sort by:
+	  <%= sort_link @search, :id, 'Purchase Id' %> |
+	  <%= sort_link @search, :started_at, 'Date Started' %> |
+	  <%= sort_link @search, :user_display_name, 'User Name' %> | 
+	  <%= sort_link @search, :user_email, 'User Email' %> | 
+	  <%= sort_link @search, :payment_notification_status, 'Status' %>
+	</p>
+	
+	<%= render @purchases %>
+
+	<div class="clear"></div>
+
+	<%= will_paginate @purchases %>
+	
+</div>

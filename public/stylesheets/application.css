@@ -151,7 +151,7 @@ h2
 	}
 	.bet-panel-small
 	{
-		height:175px;
+		height:190px;
 	}
 	.bet-panel, .bet-panel-small
 	{
@@ -345,18 +345,6 @@ h2
 
 .bet-panel, .bet-panel-small
 {
-	background: #fff;
-	box-shadow: 0px 0px 7px #248cab;
-	-webkit-box-shadow: 0px 0px 7px #248cab;
-	-moz-box-shadow: 0px 0px 7px #248cab;
-	-moz-border-radius: 15px;
-	border-radius: 10px;
-	border-top-left-radius: 10px 10px;
-	border-top-right-radius: 10px 10px;
-	border-bottom-right-radius: 10px 10px;
-	border-bottom-left-radius: 10px 10px;
-	margin-bottom:25px;
-    position:relative;
     float:left;
 }
 
@@ -388,6 +376,7 @@ h2
 
 .bet-panel-small .bet-end-date
 {
+	margin-bottom:25px;
 	float:left;
 }
 
@@ -522,7 +511,6 @@ h2
 
 .thin-border
 {
-	padding:10px 10px 10px 20px;
 	background: #fff;
 	box-shadow: 0px 0px 3px black;
 	-webkit-box-shadow: 0px 0px 4px black;
@@ -536,5 +524,87 @@ h2
 	border:1px solid black;
 	margin-bottom:25px;
     position:relative;
+}
+
+.standard-padding
+{
+	padding:10px 10px 10px 10px;
+}
+
+.credit-box
+{
 	width:200px;
+}
+
+.purchase
+{
+	float:left;
+	border-top:1px solid #ADADAD;
+	font-size:13px;
+}
+
+.purchase div.left
+{
+	margin-top:7px;
+}
+
+.row-item
+{
+	float:left;
+	padding:10px;
+}
+
+.row-item-short
+{
+	width:40px;
+}
+
+.row-item-long
+{
+	width:120px;
+}
+
+.border-left
+{
+	border-left:1px solid #E5E5E5;
+}
+
+.rounded-border, .bet-panel, .bet-panel-small
+{
+	background: #fff;
+	box-shadow: 0px 0px 7px #248cab;
+	-webkit-box-shadow: 0px 0px 7px #248cab;
+	-moz-box-shadow: 0px 0px 7px #248cab;
+	-moz-border-radius: 15px;
+	border-radius: 10px;
+	border-top-left-radius: 10px 10px;
+	border-top-right-radius: 10px 10px;
+	border-bottom-right-radius: 10px 10px;
+	border-bottom-left-radius: 10px 10px;
+    position:relative;
+}
+
+.info-box
+{
+	margin:30px auto 0;
+	padding:10px;
+	font-size:13px;
+	width:500px;
+	overflow:hidden;
+}
+
+.info-box ul
+{
+	list-style:none;
+	padding:0;
+}
+
+.left
+{
+	float:left;
+}
+
+.right
+{
+	float:right;
 }

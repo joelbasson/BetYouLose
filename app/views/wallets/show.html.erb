@@ -1,6 +1,6 @@
 <% title "My Wallet" %>
 
-<div class="thin-border">
+<div class="thin-border credit-box left standard-padding">
 <h3>My Credits </h3>	
 
 <p>
@@ -10,6 +10,12 @@
 <p><%= link_to "Buy Credits >>", wallet_buy_path(current_user.wallet) %></p>
 
 </div>
+
+<% if current_user.try(:admin?) %>	
+	<%= render 'admin-links' %>
+<% end %>
+
+<div class="clear"></div>
 
 <div class="my-links bold">
   	<%= link_to "Transactions", {:controller => "wallets", :action => "show"}, :remote => true %>  | 

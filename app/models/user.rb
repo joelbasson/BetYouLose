@@ -9,9 +9,5 @@ class User < ActiveRecord::Base
   belongs_to :wallet
   has_many :wagers
   has_many :bets
-  
-  def before_rpx_auto_create(rpx_user)
-      self.display_name = rpx_user["displayName"]
-  end
     
 end

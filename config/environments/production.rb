@@ -46,6 +46,19 @@ Betyoulose::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
+  
+  config.action_dispatch.best_standards_support = :builtin
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :tls                  => true,
+    :address              => "smtp.gmail.com",
+    :port                 => 587,
+    :domain               => "betyoulose.com",
+    :user_name            => 'betmaster@betyoulose.com',
+    :password             => 'temp1234',
+    :authentication       => 'plain',
+    :enable_starttls_auto => true  }
+    
   ENV["HOSTNAME"] = 'http://www.betyoulose.com'
   config.cache_store = :dalli_store
 end

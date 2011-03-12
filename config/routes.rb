@@ -1,4 +1,11 @@
 Betyoulose::Application.routes.draw do
+
+  resources :purchases, :only => [:index, :show, :destroy] do
+    get 'payment_info'
+  end  
+
+  resources :payment_notifications
+
   match 'wagers/my_wagers' => 'wagers#my_wagers', :as => :my_wagers
   match 'bets/my_bets' => 'bets#my_bets', :as => :my_bets
   

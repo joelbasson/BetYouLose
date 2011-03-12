@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110309054828) do
+ActiveRecord::Schema.define(:version => 20110311213052) do
 
   create_table "bets", :force => true do |t|
     t.string   "title"
@@ -26,6 +26,26 @@ ActiveRecord::Schema.define(:version => 20110309054828) do
     t.string   "display_name"
     t.integer  "wagers_count",       :default => 0
     t.string   "status",             :default => "Undecided"
+  end
+
+  create_table "payment_notifications", :force => true do |t|
+    t.text     "params"
+    t.string   "status"
+    t.string   "transaction_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "purchase_id"
+  end
+
+  create_table "purchases", :force => true do |t|
+    t.integer  "wallet_id"
+    t.integer  "amount"
+    t.integer  "user_id"
+    t.decimal  "value",        :precision => 8, :scale => 2
+    t.datetime "started_at"
+    t.datetime "purchased_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "transactions", :force => true do |t|
